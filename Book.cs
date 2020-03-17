@@ -19,9 +19,9 @@ namespace Lab1
             humans.Add(nextId++, human);
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            humans.Remove(id);
+            return humans.Remove(id);
         }
 
         public Human this[int id] => humans[id];

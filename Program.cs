@@ -57,7 +57,8 @@ namespace Lab1
                         Console.WriteLine("Введите id");
                         try
                         {
-                            book.Delete(Convert.ToInt32(Console.ReadLine()));
+                            if (!book.Delete(Convert.ToInt32(Console.ReadLine())))
+                                Console.WriteLine("Нет такого id");
                         }
                         catch (Exception)
                         {
@@ -230,12 +231,12 @@ namespace Lab1
 
         private static bool IsWord(string s)
         {
-            return s.Count(Char.IsLetter) == s.Length;
+            return s != "" && s.Count(Char.IsLetter) == s.Length;
         }
 
         private static bool IsNumber(string s)
         {
-            return s.Count(Char.IsDigit) == s.Length;
+            return s != "" && s.Count(Char.IsDigit) == s.Length;
         }
     }
 }
